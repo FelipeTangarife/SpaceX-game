@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 	//Aparecer los proyectiles
 	[SerializeField]
 	private GameObject player_Bullet;
+    [SerializeField]
+    private GameObject explosion;
 
 	[SerializeField]
 	private Transform[] attack_points;
@@ -72,5 +74,9 @@ public class PlayerController : MonoBehaviour
             }
     		
     	}
+    }
+
+    void MostrarExplosion() {
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }
