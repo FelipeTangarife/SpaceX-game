@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< Updated upstream:SpaceX/Assets/Prefabs.meta
+guid: 6aa8f32cd2b7e8747b7aaf6e1181963f
+folderAsset: yes
+DefaultImporter:
+=======
+guid: 05d1e83195c0a15478ba50229a5538b5
+MonoImporter:
+>>>>>>> Stashed changes:SpaceX/Assets/Scripts/DestroyByBoundary.cs.meta
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
