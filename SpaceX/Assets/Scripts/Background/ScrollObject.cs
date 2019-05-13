@@ -14,7 +14,6 @@ public class ScrollObject : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         hLength = rend.bounds.size.x;
-        Debug.Log(hLength);
     }
 
     // Update is called once per frame
