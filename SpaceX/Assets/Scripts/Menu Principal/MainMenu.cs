@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
 	//Función para botón de "Exit"
 	public void QuitGame()
 	{
-		Debug.Log("SALIR!");
 		Application.Quit();
 	}
 }

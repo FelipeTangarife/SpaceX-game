@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 	//Variable de velocidad de desplazamiento
 	public float speed = 8f;
+    private int life = 3;
 
 	public float min_Y, min_X, max_Y, max_X;
 
@@ -78,5 +79,13 @@ public class PlayerController : MonoBehaviour
 
     void MostrarExplosion() {
         Instantiate(explosion, transform.position, Quaternion.identity);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Enemigo")) {
+            life--;
+            MostrarExplosion();
+            Destroy(gameObject);
+        }
     }
 }

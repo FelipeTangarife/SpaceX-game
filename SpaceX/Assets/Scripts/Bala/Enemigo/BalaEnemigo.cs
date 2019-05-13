@@ -20,13 +20,15 @@ public class BalaEnemigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("BalaPlayer"))
         {
-
             Destroy(gameObject);
-         
         }
 
         
+    }
+
+    void OnBecameInvisible() {
+        Destroy(gameObject);
     }
 }

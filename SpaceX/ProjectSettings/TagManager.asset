@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BalaEnemigo
+  - BalaPlayer
+  - Enemigo
   - NaveBasI
   layers:
   - Default
@@ -40,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 828618761
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 952574417
     locked: 0
