@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MovEnemigo : MonoBehaviour {
 
+    private GameObject gameController;
+
     // Use this for initialization
     public Transform comienzo, fin;
-
     public Transform disparadorDerecho;
     public Transform disparadorIzquierdo;
 
@@ -18,7 +19,11 @@ public class MovEnemigo : MonoBehaviour {
     public int maxHp = 100;
 
     private int hp;
-    public float speed = 10f; 
+    private int scoreValue = 250;
+    public float speed = 10f;
+
+    int score = 200;
+   
 
     void Start() {
         Raycasting();
@@ -48,7 +53,8 @@ public class MovEnemigo : MonoBehaviour {
     }
 
     void MostrarExplosion() {
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        GameObject cloneExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(cloneExplosion, 1.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -56,6 +62,8 @@ public class MovEnemigo : MonoBehaviour {
         {
             hp -= 25;
             if (hp <= 0) {
+
+                ScoreManager.score += score;
                 MostrarExplosion();
                 Destroy(gameObject);
             }

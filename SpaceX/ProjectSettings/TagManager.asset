@@ -7,6 +7,8 @@ TagManager:
   - BalaPlayer
   - Enemigo
   - NaveBasI
+  - NaveBasII
+  - GUI
   layers:
   - Default
   - TransparentFX
