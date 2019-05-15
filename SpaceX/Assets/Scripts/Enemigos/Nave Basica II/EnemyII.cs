@@ -77,8 +77,6 @@ public class EnemyII : MonoBehaviour {
     }
 
     void Raycasting() {
-
-
         //Debug.DrawLine(comienzo.position, fin.position, Color.blue, 2f);
 
         float timeDisp = 0f;
@@ -99,18 +97,13 @@ public class EnemyII : MonoBehaviour {
 
 
     void disparar() {
-
-
-
-
+        AudioManager.instance.Play("disparoEnemigo3");
         Instantiate(disparadorPrefab, disparador.position, disparador.transform.rotation);
-
-
-
     }
 
     void MostrarExplosion() {
         GameObject cloneExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        AudioManager.instance.Play("destruirNave");
         Destroy(cloneExplosion, 1.0f);
     } 
 

@@ -25,6 +25,7 @@ public class Reiniciar : MonoBehaviour
     {
      
         SceneManager.LoadScene("Nivel1");
+        AudioManager.instance.Play("bgTheme");
     }
 
     public void Back() {

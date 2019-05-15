@@ -47,7 +47,8 @@ public class MovEnemigo : MonoBehaviour {
     }
 
 
-    void disparar(){     
+    void disparar(){
+        AudioManager.instance.Play("disparoEnemigo2");
          Instantiate(disparadorPrefab, disparadorDerecho.position, disparadorPrefab.transform.rotation);
          Instantiate(disparadorPrefab, disparadorIzquierdo.position, disparadorPrefab.transform.rotation);
     }
@@ -65,6 +66,7 @@ public class MovEnemigo : MonoBehaviour {
 
                 ScoreManager.score += score;
                 MostrarExplosion();
+                AudioManager.instance.Play("destruirNave");
                 Destroy(gameObject);
             }
         }

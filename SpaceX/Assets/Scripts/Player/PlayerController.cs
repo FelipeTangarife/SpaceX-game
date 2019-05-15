@@ -24,9 +24,12 @@ public class PlayerController : MonoBehaviour
     private Sprite emptyHeart;
 	[SerializeField]
 	private Transform[] attack_points;
+    [SerializeField]
+    private AudioClip clipShoot;
+
 
     private Renderer rend;
-
+    private AudioSource audio;
     public Canvas canvas;
 
 
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         rend.enabled = true;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -100,22 +104,20 @@ public class PlayerController : MonoBehaviour
     void Disparar()
     {
     	if(Input.GetKeyDown(KeyCode.Space) && Time.timeScale !=0)
-    	{   
+    	{
+            AudioManager.instance.Play("disparoPlayer");
             foreach(Transform point in attack_points) {
                 Instantiate(player_Bullet, point.position, Quaternion.identity);
             }
+
     		
     	}
     }
 
     void MostrarExplosion() {
         GameObject cloneExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        AudioManager.instance.Play("muertePlayer");
         Destroy(cloneExplosion, 1.0f);
-    }
-
-    void DestruirNave() {
-        Destroy(gameObject);
-      
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -128,7 +130,9 @@ public class PlayerController : MonoBehaviour
                
             }
             else {
-                DestruirNave();
+                Destroy(gameObject);
+                AudioManager.instance.Stop("bgTheme");
+                AudioManager.instance.Play("gameOver");
                 canvas.GetComponent<Animator>().SetTrigger("muerto");
                 canvas.GetComponent<Canvas>();
                 canvas.GetComponent<Reiniciar>().canvas.enabled = !canvas.enabled;
